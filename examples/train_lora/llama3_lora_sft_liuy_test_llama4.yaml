@@ -1,0 +1,42 @@
+### model  /data/liuytest/chatglm3-6b
+### Llama3  /data/liuytest/Llama3-Chinese_v2
+### qwen  /data/liuytest/Qwen-7B-Chat
+### Baichuan2   /data/liuytest/Baichuan2-7B-Chat
+model_name_or_path: /data/liuytest/Llama3-Chinese_v2
+stage: sft
+do_train: true
+finetuning_type: lora
+## chatglm query_key_value
+lora_target: all
+
+### dataset dataset: identity,alpaca_en_demo
+dataset: nlp2cypher_vector_prompt
+# llama3  llama3 训练的时候选择这个  ## naichuan2 用 baichuan2  ## Qwen 用default  ## chatglm3 用 chatglm3
+template: llama3
+cutoff_len: 1024
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/llama3_vector_prompt/lora/sft
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8 # 百川2可能要吧这个搞小点
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+ddp_timeout: 180000000
+
+### eval
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500

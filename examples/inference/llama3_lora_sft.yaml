@@ -1,0 +1,12 @@
+# glm3 /data/liuytest/chatglm3-6b
+# llam3 /data/liuytest/Llama3-Chinese_v2
+# qwen /data/liuytest/Qwen-7B-Chat/
+model_name_or_path: /data/liuytest/Llama3-Chinese_v2
+# llam3 /data/liuytest/LLaMA-Factory/saves/llama3-8b/lora/sft/
+# qwen /data/liuytest/LLaMA-Factory/saves/Qwen-7B-Chat/lora/sft/
+# glm3 /data/liuytest/LLaMA-Factory/saves/chatglm3/lora/sft
+adapter_name_or_path: /data/liuytest/LLaMA-Factory/saves/llama3-8b/lora/sft/
+## llama3  llama3 训练的时候选择这个  ## naichuan2 用 baichuan2  ## Qwen 用 default  ## chatglm3 用 chatglm3
+### qwen模型必须改成default
+template: llama3
+finetuning_type: lora

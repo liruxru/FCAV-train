@@ -1,0 +1,6 @@
+model_name_or_path: /data/liuytest/Llama3-Chinese_v2
+# model_name_or_path: /data/liuytest/chatglm3-6b
+adapter_name_or_path: /data/liuytest/LLaMA-Factory/saves/llama3-8b/lora/sft/
+template: llama3
+infer_backend: vllm
+vllm_enforce_eager: true
